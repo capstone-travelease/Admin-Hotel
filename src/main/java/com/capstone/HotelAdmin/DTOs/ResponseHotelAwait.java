@@ -1,11 +1,9 @@
 package com.capstone.HotelAdmin.DTOs;
 
 import com.capstone.HotelAdmin.Entities.Facilities;
-import com.capstone.HotelAdmin.Entities.Rooms;
 import com.capstone.HotelAdmin.Entities.Users;
-import org.apache.catalina.User;
 
-import java.time.LocalDate;
+import java.sql.Time;
 import java.util.List;
 
 public class ResponseHotelAwait {
@@ -13,8 +11,8 @@ public class ResponseHotelAwait {
     private String hotel_name;
     private  String hotel_address;
     private List<ResponseRoomAwait> rooms;
-    private LocalDate check_in;
-    private LocalDate check_out;
+    private Time check_in;
+    private Time check_out;
     private String description;
     private List<String> hotel_images;
     private List<String> room_images;
@@ -22,7 +20,7 @@ public class ResponseHotelAwait {
     private Facilities id_card;
     private String policy;
 
-    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_address, LocalDate check_in, LocalDate check_out, String description) {
+    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_address, Time check_in, Time check_out, String description) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
@@ -31,7 +29,7 @@ public class ResponseHotelAwait {
         this.description = description;
     }
 
-    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_address, LocalDate check_in, LocalDate check_out, String description, String policy) {
+    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_address, Time check_in, Time check_out, String description, String policy) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
@@ -41,7 +39,7 @@ public class ResponseHotelAwait {
         this.policy = policy;
     }
 
-    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_address, List<ResponseRoomAwait> rooms, LocalDate check_in, LocalDate check_out, String description, String policy) {
+    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_address, List<ResponseRoomAwait> rooms, Time check_in, Time check_out, String description, String policy) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
@@ -52,7 +50,7 @@ public class ResponseHotelAwait {
         this.policy = policy;
     }
 
-    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_address, List<ResponseRoomAwait> rooms, LocalDate check_in, LocalDate check_out, String description, List<String> hotel_images, String policy) {
+    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_address, List<ResponseRoomAwait> rooms, Time check_in, Time check_out, String description, List<String> hotel_images, String policy) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
@@ -64,7 +62,7 @@ public class ResponseHotelAwait {
         this.policy = policy;
     }
 
-    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_address, List<ResponseRoomAwait> rooms, LocalDate check_in, LocalDate check_out, String description, List<String> hotel_images, List<String> room_images, String policy) {
+    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_address, List<ResponseRoomAwait> rooms, Time check_in, Time check_out, String description, List<String> hotel_images, List<String> room_images, String policy) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
@@ -77,7 +75,7 @@ public class ResponseHotelAwait {
         this.policy = policy;
     }
 
-    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_address, List<ResponseRoomAwait> rooms, LocalDate check_in, LocalDate check_out, String description, List<String> hotel_images, List<String> room_images, Users user, String policy) {
+    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_address, List<ResponseRoomAwait> rooms, Time check_in, Time check_out, String description, List<String> hotel_images, List<String> room_images, Users user, String policy) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
@@ -92,7 +90,7 @@ public class ResponseHotelAwait {
     }
 
 
-    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_address, List<ResponseRoomAwait> rooms, LocalDate check_in, LocalDate check_out, String description, List<String> hotel_images, List<String> room_images, Users user, Facilities id_card, String policy) {
+    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_address, List<ResponseRoomAwait> rooms, Time check_in, Time check_out, String description, List<String> hotel_images, List<String> room_images, Users user, Facilities id_card, String policy) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
@@ -139,19 +137,19 @@ public class ResponseHotelAwait {
         this.rooms = rooms;
     }
 
-    public LocalDate getCheck_in() {
+    public Time getCheck_in() {
         return check_in;
     }
 
-    public void setCheck_in(LocalDate check_in) {
+    public void setCheck_in(Time check_in) {
         this.check_in = check_in;
     }
 
-    public LocalDate getCheck_out() {
+    public Time getCheck_out() {
         return check_out;
     }
 
-    public void setCheck_out(LocalDate check_out) {
+    public void setCheck_out(Time check_out) {
         this.check_out = check_out;
     }
 

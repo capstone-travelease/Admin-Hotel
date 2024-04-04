@@ -2,8 +2,7 @@ package com.capstone.HotelAdmin.Entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-import java.util.BitSet;
+import java.sql.Time;
 
 @Entity
 @Table
@@ -27,14 +26,14 @@ public class Hotels {
     private String hotel_email;
     private String hotel_description;
     private Double star_rating;
-    private LocalDate check_in_time;
-    private LocalDate check_out_time;
+    private Time check_in_time;
+    private Time check_out_time;
     private Integer owner_id;
 
     public Hotels() {
     }
 
-    public Hotels(Integer hotel_id, String hotel_name, String hotel_address, String hotel_city, String hotel_country, String hotel_contract_number, String hotel_email, String hotel_description, Double star_rating, LocalDate check_in_time, LocalDate check_out_time, Integer owner_id) {
+    public Hotels(Integer hotel_id, String hotel_name, String hotel_address, String hotel_city, String hotel_country, String hotel_contract_number, String hotel_email, String hotel_description, Double star_rating, Time check_in_time, Time check_out_time, Integer owner_id) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
@@ -49,7 +48,7 @@ public class Hotels {
         this.owner_id = owner_id;
     }
 
-    public Hotels(String hotel_name, String hotel_address, String hotel_city, String hotel_country, String hotel_contract_number, String hotel_email, String hotel_description, Double star_rating, LocalDate check_in_time, LocalDate check_out_time, Integer owner_id) {
+    public Hotels(String hotel_name, String hotel_address, String hotel_city, String hotel_country, String hotel_contract_number, String hotel_email, String hotel_description, Double star_rating, Time check_in_time, Time check_out_time, Integer owner_id) {
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
         this.hotel_city = hotel_city;
@@ -135,19 +134,19 @@ public class Hotels {
         this.star_rating = star_rating;
     }
 
-    public LocalDate getCheck_in_time() {
+    public Time getCheck_in_time() {
         return check_in_time;
     }
 
-    public void setCheck_in_time(LocalDate check_in_time) {
+    public void setCheck_in_time(Time check_in_time) {
         this.check_in_time = check_in_time;
     }
 
-    public LocalDate getCheck_out_time() {
+    public Time getCheck_out_time() {
         return check_out_time;
     }
 
-    public void setCheck_out_time(LocalDate check_out_time) {
+    public void setCheck_out_time(Time check_out_time) {
         this.check_out_time = check_out_time;
     }
 
