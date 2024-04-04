@@ -1,6 +1,7 @@
 package com.capstone.HotelAdmin.Controllers;
 
 import com.capstone.HotelAdmin.DTOs.ResponseHotelAwait;
+import com.capstone.HotelAdmin.DTOs.ResponseHotelDetail;
 import com.capstone.HotelAdmin.Services.ApproveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -25,7 +26,11 @@ public class ApproveController {
 //     }
 
      @GetMapping("/approval-hotel/{hotelId}")
-    public ResponseHotelAwait GetHotel(@PathVariable Integer hotelId){
-        return approveService.DetailHotel(hotelId);
+    public ResponseHotelDetail GetHotel(@PathVariable Integer hotelId){
+        return new ResponseHotelDetail(
+                200,
+                approveService.DetailHotel(hotelId),
+                "Successful"
+        );
      }
 }
