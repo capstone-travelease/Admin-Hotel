@@ -1,12 +1,10 @@
 package com.capstone.HotelAdmin.Controllers;
 
 import com.capstone.HotelAdmin.DTOs.ResponseHotelDetail;
+import com.capstone.HotelAdmin.DTOs.ResponseStatus;
 import com.capstone.HotelAdmin.Services.ApproveService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/admin/api")
@@ -18,16 +16,51 @@ public class ApproveController {
         this.approveService = approveService;
     }
 
-//    @GetMapping("/approval-hotel")
-//     public void GetAwaitHotel(){
-//        approveService.AwaitHotelList();
-//     }
+    @PutMapping("/approval-hotel/approve/{hotelId}")
+     public ResponseStatus ApproveHotelController(@PathVariable Integer hotelId){
+        Integer approveStatus = approveService.ApproveHotelService(hotelId);
+
+        if (approveStatus == 1){
+            return new ResponseStatus(
+                    200,
+                    "Approved Hotel "+hotelId+" Successful",
+                    "Successful"
+            );
+        }
+        else {
+            return new ResponseStatus(
+                    404,
+                    "Not found hotel " + hotelId,
+                    "Failure"
+            );
+        }
+     }
+
+    @PutMapping("/approval-hotel/reject/{hotelId}")
+    public ResponseStatus RejectHotelController(@PathVariable Integer hotelId){
+        Integer rejectStatus = approveService.RejectHotelService(hotelId);
+
+        if (rejectStatus == 1){
+            return new ResponseStatus(
+                    200,
+                    "Reject Hotel " +hotelId+" Successful",
+                    "Successful"
+            );
+        }
+        else {
+            return new ResponseStatus(
+                    404,
+                    "Not found hotel " + hotelId,
+                    "Failure"
+            );
+        }
+    }
 
      @GetMapping("/approval-hotel/{hotelId}")
-    public ResponseHotelDetail GetHotel(@PathVariable Integer hotelId){
+    public ResponseHotelDetail GetHotelController(@PathVariable Integer hotelId){
         return new ResponseHotelDetail(
                 200,
-                approveService.DetailHotel(hotelId),
+                approveService.DetailHotelService(hotelId),
                 "Successful"
         );
      }

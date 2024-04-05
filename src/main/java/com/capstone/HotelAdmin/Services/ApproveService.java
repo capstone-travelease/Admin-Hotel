@@ -3,8 +3,9 @@ package com.capstone.HotelAdmin.Services;
 import com.capstone.HotelAdmin.DTOs.ResponseHotelAwait;
 import com.capstone.HotelAdmin.DTOs.ResponseRoomAwait;
 import com.capstone.HotelAdmin.Entities.Users;
+import com.capstone.HotelAdmin.Repositories.ApproveHotelRepository;
 import com.capstone.HotelAdmin.Repositories.GetApproveRepository;
-import org.apache.catalina.User;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,26 +14,35 @@ import java.util.List;
 @Service
 public class ApproveService {
 
-    private final GetApproveRepository approveRepository;
+    private final GetApproveRepository getApproveRepository;
+
+    private final ApproveHotelRepository approveHotel;
 
     @Autowired
-    public ApproveService(GetApproveRepository approveRepository) {
-        this.approveRepository = approveRepository;
+    public ApproveService(GetApproveRepository approveRepository, ApproveHotelRepository approveHotel) {
+        this.getApproveRepository = approveRepository;
+        this.approveHotel = approveHotel;
     }
 
-//    public void AwaitHotelList(){
-//
-//    }
+    @Transactional
+    public Integer ApproveHotelService(Integer hotelId){
+        return approveHotel.AcceptApproval(hotelId);
+    }
 
-    public ResponseHotelAwait DetailHotel(Integer hotelId){
-        ResponseHotelAwait listAwaitHotel = approveRepository.getDetailHotel(hotelId);
-        List<ResponseRoomAwait> listRoom = approveRepository.getRoomList(hotelId);
-        List<String> listHotelImages = approveRepository.getHotelImages(hotelId);
-        List<String> listRoomImages = approveRepository.getRoomImages(hotelId);
-        Users userInfo = approveRepository.getUser(hotelId);
+    @Transactional
+    public Integer RejectHotelService(Integer hotelId){
+        return approveHotel.RejectApproval(hotelId);
+    }
+
+    public ResponseHotelAwait DetailHotelService(Integer hotelId){
+        ResponseHotelAwait listAwaitHotel = getApproveRepository.getDetailHotel(hotelId);
+        List<ResponseRoomAwait> listRoom = getApproveRepository.getRoomList(hotelId);
+        List<String> listHotelImages = getApproveRepository.getHotelImages(hotelId);
+        List<String> listRoomImages = getApproveRepository.getRoomImages(hotelId);
+        Users userInfo = getApproveRepository.getUser(hotelId);
 
         for(ResponseRoomAwait data: listRoom){
-            List<String> listFacilities = approveRepository.getRoomFacilities(data.getRoom_id());
+            List<String> listFacilities = getApproveRepository.getRoomFacilities(data.getRoom_id());
             data.setRoom_facilities(listFacilities);
         }
 

@@ -28,12 +28,13 @@ public class Hotels {
     private Double star_rating;
     private Time check_in_time;
     private Time check_out_time;
+    private Integer approve_status;
     private Integer owner_id;
 
     public Hotels() {
     }
 
-    public Hotels(Integer hotel_id, String hotel_name, String hotel_address, String hotel_city, String hotel_country, String hotel_contract_number, String hotel_email, String hotel_description, Double star_rating, Time check_in_time, Time check_out_time, Integer owner_id) {
+    public Hotels(Integer hotel_id, String hotel_name, String hotel_address, String hotel_city, String hotel_country, String hotel_contract_number, String hotel_email, String hotel_description, Double star_rating, Time check_in_time, Time check_out_time, Integer approve_status,Integer owner_id) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
@@ -45,10 +46,11 @@ public class Hotels {
         this.star_rating = star_rating;
         this.check_in_time = check_in_time;
         this.check_out_time = check_out_time;
+        this.approve_status = approve_status;
         this.owner_id = owner_id;
     }
 
-    public Hotels(String hotel_name, String hotel_address, String hotel_city, String hotel_country, String hotel_contract_number, String hotel_email, String hotel_description, Double star_rating, Time check_in_time, Time check_out_time, Integer owner_id) {
+    public Hotels(String hotel_name, String hotel_address, String hotel_city, String hotel_country, String hotel_contract_number, String hotel_email, String hotel_description, Double star_rating, Time check_in_time, Time check_out_time, Integer approve_status, Integer owner_id) {
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
         this.hotel_city = hotel_city;
@@ -59,6 +61,7 @@ public class Hotels {
         this.star_rating = star_rating;
         this.check_in_time = check_in_time;
         this.check_out_time = check_out_time;
+        this.approve_status = approve_status;
         this.owner_id = owner_id;
     }
 
@@ -154,6 +157,14 @@ public class Hotels {
         return owner_id;
     }
 
+    public Integer getApprove_status() {
+        return approve_status;
+    }
+
+    public void setApprove_status(Integer approve_status) {
+        this.approve_status = approve_status;
+    }
+
     public void setOwner_id(Integer owner_id) {
         this.owner_id = owner_id;
     }
@@ -172,6 +183,7 @@ public class Hotels {
                 ", star_rating=" + star_rating +
                 ", check_in_time=" + check_in_time +
                 ", check_out_time=" + check_out_time +
+                ", approve_status=" + approve_status +
                 ", owner_id=" + owner_id +
                 '}';
     }
