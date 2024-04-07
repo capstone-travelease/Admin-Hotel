@@ -1,7 +1,9 @@
 package com.capstone.HotelAdmin.Services;
 
-import com.capstone.HotelAdmin.DTOs.ResponseHotelAwait;
+import com.capstone.HotelAdmin.DTOs.ResponseHotelDetail;
+import com.capstone.HotelAdmin.DTOs.ResponseHotelFacility;
 import com.capstone.HotelAdmin.DTOs.ResponseRoomAwait;
+import com.capstone.HotelAdmin.DTOs.ResponseRoomFacility;
 import com.capstone.HotelAdmin.Entities.Users;
 import com.capstone.HotelAdmin.Repositories.ApproveHotelRepository;
 import com.capstone.HotelAdmin.Repositories.GetApproveRepository;
@@ -34,23 +36,25 @@ public class ApproveService {
         return approveHotel.RejectApproval(hotelId);
     }
 
-    public ResponseHotelAwait DetailHotelService(Integer hotelId){
-        ResponseHotelAwait listAwaitHotel = getApproveRepository.getDetailHotel(hotelId);
+    public ResponseHotelDetail DetailHotelService(Integer hotelId){
+        ResponseHotelDetail detailHotel = getApproveRepository.getDetailHotel(hotelId);
         List<ResponseRoomAwait> listRoom = getApproveRepository.getRoomList(hotelId);
         List<String> listHotelImages = getApproveRepository.getHotelImages(hotelId);
-        List<String> listRoomImages = getApproveRepository.getRoomImages(hotelId);
+        List<ResponseHotelFacility> listHotelFacility = getApproveRepository.getHotelFacilities(hotelId);
         Users userInfo = getApproveRepository.getUser(hotelId);
 
         for(ResponseRoomAwait data: listRoom){
-            List<String> listFacilities = getApproveRepository.getRoomFacilities(data.getRoom_id());
+            List<ResponseRoomFacility> listFacilities = getApproveRepository.getRoomFacilities(data.getRoom_id());
+            List<String> listImage = getApproveRepository.getRoomImages(data.getRoom_id());
+            data.setRoom_images(listImage);
             data.setRoom_facilities(listFacilities);
         }
 
-        listAwaitHotel.setRooms(listRoom);
-        listAwaitHotel.setHotel_images(listHotelImages);
-        listAwaitHotel.setRoom_images(listRoomImages);
-        listAwaitHotel.setUser(userInfo);
+        detailHotel.setRooms(listRoom);
+        detailHotel.setHotel_images(listHotelImages);
+        detailHotel.setHotel_facilities(listHotelFacility);
+        detailHotel.setUser(userInfo);
 
-        return listAwaitHotel;
+        return detailHotel;
     }
 }

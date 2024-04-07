@@ -22,7 +22,7 @@ public class Hotels {
     private String hotel_address;
     private String hotel_city;
     private String hotel_country;
-    private String hotel_contract_number;
+    private String hotel_contact_number;
     private String hotel_email;
     private String hotel_description;
     private Double star_rating;
@@ -34,13 +34,13 @@ public class Hotels {
     public Hotels() {
     }
 
-    public Hotels(Integer hotel_id, String hotel_name, String hotel_address, String hotel_city, String hotel_country, String hotel_contract_number, String hotel_email, String hotel_description, Double star_rating, Time check_in_time, Time check_out_time, Integer approve_status,Integer owner_id) {
+    public Hotels(Integer hotel_id, String hotel_name, String hotel_address, String hotel_city, String hotel_country, String hotel_contact_number, String hotel_email, String hotel_description, Double star_rating, Time check_in_time, Time check_out_time, Integer approve_status,Integer owner_id) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
         this.hotel_city = hotel_city;
         this.hotel_country = hotel_country;
-        this.hotel_contract_number = hotel_contract_number;
+        this.hotel_contact_number = hotel_contact_number;
         this.hotel_email = hotel_email;
         this.hotel_description = hotel_description;
         this.star_rating = star_rating;
@@ -50,12 +50,12 @@ public class Hotels {
         this.owner_id = owner_id;
     }
 
-    public Hotels(String hotel_name, String hotel_address, String hotel_city, String hotel_country, String hotel_contract_number, String hotel_email, String hotel_description, Double star_rating, Time check_in_time, Time check_out_time, Integer approve_status, Integer owner_id) {
+    public Hotels(String hotel_name, String hotel_address, String hotel_city, String hotel_country, String hotel_contact_number, String hotel_email, String hotel_description, Double star_rating, Time check_in_time, Time check_out_time, Integer approve_status, Integer owner_id) {
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
         this.hotel_city = hotel_city;
         this.hotel_country = hotel_country;
-        this.hotel_contract_number = hotel_contract_number;
+        this.hotel_contact_number = hotel_contact_number;
         this.hotel_email = hotel_email;
         this.hotel_description = hotel_description;
         this.star_rating = star_rating;
@@ -105,12 +105,12 @@ public class Hotels {
         this.hotel_country = hotel_country;
     }
 
-    public String getHotel_contract_number() {
-        return hotel_contract_number;
+    public String gethotel_contact_number() {
+        return hotel_contact_number;
     }
 
-    public void setHotel_contract_number(String hotel_contract_number) {
-        this.hotel_contract_number = hotel_contract_number;
+    public void sethotel_contact_number(String hotel_contact_number) {
+        this.hotel_contact_number = hotel_contact_number;
     }
 
     public String getHotel_email() {
@@ -177,7 +177,7 @@ public class Hotels {
                 ", hotel_address='" + hotel_address + '\'' +
                 ", hotel_city='" + hotel_city + '\'' +
                 ", hotel_country='" + hotel_country + '\'' +
-                ", hotel_contract_number='" + hotel_contract_number + '\'' +
+                ", hotel_contact_number='" + hotel_contact_number + '\'' +
                 ", hotel_email='" + hotel_email + '\'' +
                 ", hotel_description='" + hotel_description + '\'' +
                 ", star_rating=" + star_rating +

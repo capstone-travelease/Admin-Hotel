@@ -8,7 +8,8 @@ public class ResponseRoomAwait {
     private Integer room_quantity;
     private Double room_price;
     private Integer room_status;
-    private List<String> room_facilities;
+    private List<ResponseRoomFacility> room_facilities;
+    private List<String> room_images;
 
     public ResponseRoomAwait(Integer room_id, String room_type_name, Integer room_quantity, Double room_price, Integer room_status) {
         this.room_id = room_id;
@@ -18,13 +19,23 @@ public class ResponseRoomAwait {
         this.room_status = room_status;
     }
 
-    public ResponseRoomAwait(Integer room_id, String room_type_name, Integer room_quantity, Double room_price, Integer room_status, List<String> room_facilities) {
+    public ResponseRoomAwait(Integer room_id, String room_type_name, Integer room_quantity, Double room_price, Integer room_status, List<ResponseRoomFacility> room_facilities) {
         this.room_id = room_id;
         this.room_type_name = room_type_name;
         this.room_quantity = room_quantity;
         this.room_price = room_price;
         this.room_status = room_status;
         this.room_facilities = room_facilities;
+    }
+
+    public ResponseRoomAwait(Integer room_id, String room_type_name, Integer room_quantity, Double room_price, Integer room_status, List<ResponseRoomFacility> room_facilities, List<String> room_images) {
+        this.room_id = room_id;
+        this.room_type_name = room_type_name;
+        this.room_quantity = room_quantity;
+        this.room_price = room_price;
+        this.room_status = room_status;
+        this.room_facilities = room_facilities;
+        this.room_images = room_images;
     }
 
     public Integer getRoom_id() {
@@ -35,11 +46,11 @@ public class ResponseRoomAwait {
         this.room_id = room_id;
     }
 
-    public String getroom_type_name() {
+    public String getRoom_type_name() {
         return room_type_name;
     }
 
-    public void setroom_type_name(String room_type_name) {
+    public void setRoom_type_name(String room_type_name) {
         this.room_type_name = room_type_name;
     }
 
@@ -67,12 +78,20 @@ public class ResponseRoomAwait {
         this.room_status = room_status;
     }
 
-    public List<String> getRoom_facilities() {
+    public List<ResponseRoomFacility> getRoom_facilities() {
         return room_facilities;
     }
 
-    public void setRoom_facilities(List<String> room_facilities) {
+    public void setRoom_facilities(List<ResponseRoomFacility> room_facilities) {
         this.room_facilities = room_facilities;
+    }
+
+    public List<String> getRoom_images() {
+        return room_images;
+    }
+
+    public void setRoom_images(List<String> room_images) {
+        this.room_images = room_images;
     }
 
     @Override
@@ -80,10 +99,11 @@ public class ResponseRoomAwait {
         return "ResponseRoomAwait{" +
                 "room_id=" + room_id +
                 ", room_type_name='" + room_type_name + '\'' +
-                ", room_quantity='" + room_quantity + '\'' +
+                ", room_quantity=" + room_quantity +
                 ", room_price=" + room_price +
                 ", room_status=" + room_status +
                 ", room_facilities=" + room_facilities +
+                ", room_images=" + room_images +
                 '}';
     }
 }
