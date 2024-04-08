@@ -1,10 +1,13 @@
 package com.capstone.HotelAdmin.Controllers;
 
+import com.capstone.HotelAdmin.DTOs.ResponseHotelAwait;
 import com.capstone.HotelAdmin.DTOs.ResponseHotelDetailList;
 import com.capstone.HotelAdmin.DTOs.ResponseStatus;
 import com.capstone.HotelAdmin.Services.ApproveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/admin/api")
@@ -63,5 +66,10 @@ public class ApproveController {
                 approveService.DetailHotelService(hotelId),
                 "Successful"
         );
-     }
+    }
+
+    @GetMapping("/approval-hotel")
+    public List<ResponseHotelAwait> ListHotelAwait(){
+        return approveService.AwaitHotel();
+    }
 }

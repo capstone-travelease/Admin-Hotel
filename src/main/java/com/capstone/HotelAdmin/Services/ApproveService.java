@@ -1,9 +1,6 @@
 package com.capstone.HotelAdmin.Services;
 
-import com.capstone.HotelAdmin.DTOs.ResponseHotelDetail;
-import com.capstone.HotelAdmin.DTOs.ResponseHotelFacility;
-import com.capstone.HotelAdmin.DTOs.ResponseRoomAwait;
-import com.capstone.HotelAdmin.DTOs.ResponseRoomFacility;
+import com.capstone.HotelAdmin.DTOs.*;
 import com.capstone.HotelAdmin.Entities.Users;
 import com.capstone.HotelAdmin.Repositories.ApproveHotelRepository;
 import com.capstone.HotelAdmin.Repositories.GetApproveRepository;
@@ -11,7 +8,11 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class ApproveService {
@@ -56,5 +57,33 @@ public class ApproveService {
         detailHotel.setUser(userInfo);
 
         return detailHotel;
+    }
+
+    public List<ResponseHotelAwait> AwaitHotel(){
+        List<ResponseHotelAwait> getListHotel = approveHotel.GetAwaitHotel();
+        Map<Integer, Integer> mapRoomWithHotel = new HashMap<>();
+        Integer temp = 0;
+
+        for(ResponseHotelAwait data: getListHotel){
+            List<String> hotelImages = getApproveRepository.getHotelImages(data.getHotel_id());
+            data.setHotel_images(hotelImages);
+
+            if(!mapRoomWithHotel.containsKey(data.getHotel_id())){
+                mapRoomWithHotel.put(data.getHotel_id(), data.getNumber_of_rooms());
+                temp = data.getNumber_of_rooms();
+            } else {
+                temp = temp + data.getNumber_of_rooms();
+                mapRoomWithHotel.put(data.getHotel_id(), temp);
+            }
+
+            data.setNumber_of_rooms(mapRoomWithHotel.get(data.getHotel_id()));
+        }
+
+        Map<Integer, List<ResponseHotelAwait>> groupedHotelId = getListHotel.stream()
+                .collect(Collectors.groupingBy(ResponseHotelAwait::getHotel_id));
+
+        return groupedHotelId.values().stream()
+                .map(hotelsInGroup -> hotelsInGroup.get(groupedHotelId.size()))
+                .toList();
     }
 }

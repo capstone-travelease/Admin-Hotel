@@ -1,6 +1,14 @@
 package com.capstone.HotelAdmin.Entities;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table
 public class ApproveStatus {
+    @Id
     private Integer statusId;
     private String statusName;
 
