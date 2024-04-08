@@ -19,6 +19,7 @@ public class ApproveController {
         this.approveService = approveService;
     }
 
+    @CrossOrigin
     @PutMapping("/approval-hotel/approve/{hotelId}")
      public ResponseStatus ApproveHotelController(@PathVariable Integer hotelId){
         Integer approveStatus = approveService.ApproveHotelService(hotelId);
@@ -39,6 +40,7 @@ public class ApproveController {
         }
      }
 
+     @CrossOrigin
     @PutMapping("/approval-hotel/reject/{hotelId}")
     public ResponseStatus RejectHotelController(@PathVariable Integer hotelId){
         Integer rejectStatus = approveService.RejectHotelService(hotelId);
@@ -59,6 +61,7 @@ public class ApproveController {
         }
     }
 
+    @CrossOrigin
      @GetMapping("/approval-hotel/{hotelId}")
     public ResponseHotelDetailList GetHotelController(@PathVariable Integer hotelId){
         return new ResponseHotelDetailList(
@@ -68,6 +71,7 @@ public class ApproveController {
         );
     }
 
+    @CrossOrigin
     @GetMapping("/approval-hotel")
     public List<ResponseHotelAwait> ListHotelAwait(){
         return approveService.AwaitHotel();
