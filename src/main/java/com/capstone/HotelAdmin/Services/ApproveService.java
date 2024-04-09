@@ -8,10 +8,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -82,8 +79,28 @@ public class ApproveService {
         Map<Integer, List<ResponseHotelAwait>> groupedHotelId = getListHotel.stream()
                 .collect(Collectors.groupingBy(ResponseHotelAwait::getHotel_id));
 
-        return groupedHotelId.values().stream()
-                .map(hotelsInGroup -> hotelsInGroup.get(groupedHotelId.size()))
-                .toList();
+
+        List<ResponseHotelAwait> result = getResponseHotelAwaits(groupedHotelId);
+
+        System.out.println(result);
+
+        return result;
+    }
+
+    private static List<ResponseHotelAwait> getResponseHotelAwaits(Map<Integer, List<ResponseHotelAwait>> groupedHotelId) {
+        List<ResponseHotelAwait> result = new ArrayList<>();
+
+        Set<Integer> keyGroupedHotel = groupedHotelId.keySet();
+
+        keyGroupedHotel.forEach(data -> {
+            for(var i = 0; i < groupedHotelId.get(data).size(); i++){
+                ResponseHotelAwait firstObj = groupedHotelId.get(data).get(i);
+                ResponseHotelAwait lastObj = groupedHotelId.get(data).get(groupedHotelId.get(data).size()-1);
+                if(firstObj.getNumber_of_rooms() >= lastObj.getNumber_of_rooms()){
+                    result.add(0, firstObj);
+                }
+            }
+        });
+        return result;
     }
 }
