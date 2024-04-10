@@ -18,7 +18,7 @@ public class ResponseHotelDetail {
     private List<String> hotel_images;
     private List<ResponseHotelFacility> hotel_facilities;
     private String policy;
-    private List<ResponseRoomAwait> rooms;
+//    private List<ResponseRoomAwait> rooms;
     private Users user;
     private String id_card;
 
@@ -43,24 +43,22 @@ public class ResponseHotelDetail {
         this.policy = policy;
     }
 
-    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, List<ResponseRoomAwait> rooms, Time check_in, Time check_out, String description, String policy) {
+    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, Time check_in, String hotel_contact_number, Time check_out, String description, String policy) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
-        this.hotel_contact_number = hotel_contact_number;
-        this.rooms = rooms;
         this.check_in = check_in;
+        this.hotel_contact_number = hotel_contact_number;
         this.check_out = check_out;
         this.description = description;
         this.policy = policy;
     }
 
-    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, List<ResponseRoomAwait> rooms, Time check_in, Time check_out, String description, List<String> hotel_images, String policy) {
+    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, Time check_in, Time check_out, String description, List<String> hotel_images, String policy) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
         this.hotel_contact_number = hotel_contact_number;
-        this.rooms = rooms;
         this.check_in = check_in;
         this.check_out = check_out;
         this.description = description;
@@ -68,7 +66,7 @@ public class ResponseHotelDetail {
         this.policy = policy;
     }
 
-    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, Time check_in, Time check_out, String description, List<String> hotel_images, List<ResponseHotelFacility> hotel_facilities, String policy, List<ResponseRoomAwait> rooms) {
+    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, Time check_in, Time check_out, String description, List<String> hotel_images, List<ResponseHotelFacility> hotel_facilities, String policy, Users user, String id_card) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
@@ -79,36 +77,6 @@ public class ResponseHotelDetail {
         this.hotel_images = hotel_images;
         this.hotel_facilities = hotel_facilities;
         this.policy = policy;
-        this.rooms = rooms;
-    }
-
-    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, Time check_in, Time check_out, String description, List<String> hotel_images, List<ResponseHotelFacility> hotel_facilities, String policy, List<ResponseRoomAwait> rooms, Users user) {
-        this.hotel_id = hotel_id;
-        this.hotel_name = hotel_name;
-        this.hotel_address = hotel_address;
-        this.hotel_contact_number = hotel_contact_number;
-        this.check_in = check_in;
-        this.check_out = check_out;
-        this.description = description;
-        this.hotel_images = hotel_images;
-        this.hotel_facilities = hotel_facilities;
-        this.policy = policy;
-        this.rooms = rooms;
-        this.user = user;
-    }
-
-    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, Time check_in, Time check_out, String description, List<String> hotel_images, List<ResponseHotelFacility> hotel_facilities, String policy, List<ResponseRoomAwait> rooms, Users user, String id_card) {
-        this.hotel_id = hotel_id;
-        this.hotel_name = hotel_name;
-        this.hotel_address = hotel_address;
-        this.hotel_contact_number = hotel_contact_number;
-        this.check_in = check_in;
-        this.check_out = check_out;
-        this.description = description;
-        this.hotel_images = hotel_images;
-        this.hotel_facilities = hotel_facilities;
-        this.policy = policy;
-        this.rooms = rooms;
         this.user = user;
         this.id_card = id_card;
     }
@@ -193,14 +161,6 @@ public class ResponseHotelDetail {
         this.policy = policy;
     }
 
-    public List<ResponseRoomAwait> getRooms() {
-        return rooms;
-    }
-
-    public void setRooms(List<ResponseRoomAwait> rooms) {
-        this.rooms = rooms;
-    }
-
     public Users getUser() {
         return user;
     }
@@ -230,7 +190,6 @@ public class ResponseHotelDetail {
                 ", hotel_images=" + hotel_images +
                 ", hotel_facilities=" + hotel_facilities +
                 ", policy='" + policy + '\'' +
-                ", rooms=" + rooms +
                 ", user=" + user +
                 ", id_card='" + id_card + '\'' +
                 '}';

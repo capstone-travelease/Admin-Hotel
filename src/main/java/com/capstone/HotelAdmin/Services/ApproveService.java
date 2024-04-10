@@ -36,19 +36,10 @@ public class ApproveService {
 
     public ResponseHotelDetail DetailHotelService(Integer hotelId){
         ResponseHotelDetail detailHotel = getApproveRepository.getDetailHotel(hotelId);
-        List<ResponseRoomAwait> listRoom = getApproveRepository.getRoomList(hotelId);
         List<String> listHotelImages = getApproveRepository.getHotelImages(hotelId);
         List<ResponseHotelFacility> listHotelFacility = getApproveRepository.getHotelFacilities(hotelId);
         Users userInfo = getApproveRepository.getUser(hotelId);
 
-        for(ResponseRoomAwait data: listRoom){
-            List<ResponseRoomFacility> listFacilities = getApproveRepository.getRoomFacilities(data.getRoom_id());
-            List<String> listImage = getApproveRepository.getRoomImages(data.getRoom_id());
-            data.setRoom_images(listImage);
-            data.setRoom_facilities(listFacilities);
-        }
-
-        detailHotel.setRooms(listRoom);
         detailHotel.setHotel_images(listHotelImages);
         detailHotel.setHotel_facilities(listHotelFacility);
         detailHotel.setUser(userInfo);

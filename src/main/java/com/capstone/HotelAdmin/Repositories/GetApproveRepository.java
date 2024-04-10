@@ -18,12 +18,6 @@ public interface GetApproveRepository extends JpaRepository<Hotels, Long> {
             "WHERE h.hotel_id = ?1")
     ResponseHotelDetail getDetailHotel(Integer hotelId);
 
-    @Query("SELECT new com.capstone.HotelAdmin.DTOs.ResponseRoomAwait(r.room_id, rt.room_type_name, r.room_quantity, r.room_price, r.room_status) FROM Rooms r\n" +
-            "INNER JOIN Roomtype rt ON rt.room_type_id = r.room_type_id\n" +
-            "INNER JOIN Hotels h ON r.hotel_id = h.hotel_id\n"+
-            "WHERE h.hotel_id = ?1")
-    List<ResponseRoomAwait> getRoomList(Integer hotelId);
-
     @Query("SELECT atc.file_url FROM Attachment atc\n" +
             "INNER JOIN HotelAttachment hatc ON atc.attachment_id = hatc.attachment_id\n" +
             "INNER JOIN Hotels h ON h.hotel_id = hatc.hotel_id\n"+
