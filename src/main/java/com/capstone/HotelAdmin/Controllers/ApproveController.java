@@ -71,7 +71,7 @@ public class ApproveController {
     }
 
 //    @CrossOrigin("*")
-    @GetMapping("/approval-hotel")
+    @GetMapping("/approval-hotels")
     public List<ResponseHotelAwait> ListHotelAwait(){
         return approveService.AwaitHotel();
     }
