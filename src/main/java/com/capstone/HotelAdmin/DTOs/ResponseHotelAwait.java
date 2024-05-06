@@ -8,27 +8,24 @@ public class ResponseHotelAwait {
     private String hotel_email;
     private String hotel_address;
     private String hotel_contact_number;
-    private Integer number_of_rooms;
     private List<String> hotel_images;
     private String status;
 
-    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_email, String hotel_address, String hotel_contact_number, Integer number_of_rooms, String status) {
+    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_email, String hotel_address, String hotel_contact_number, String status) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_email = hotel_email;
         this.hotel_address = hotel_address;
         this.hotel_contact_number = hotel_contact_number;
-        this.number_of_rooms = number_of_rooms;
         this.status = status;
     }
 
-    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_email, String hotel_address, String hotel_contact_number, Integer number_of_rooms, List<String> hotel_images, String status) {
+    public ResponseHotelAwait(Integer hotel_id, String hotel_name, String hotel_email, String hotel_address, String hotel_contact_number, List<String> hotel_images, String status) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_email = hotel_email;
         this.hotel_address = hotel_address;
         this.hotel_contact_number = hotel_contact_number;
-        this.number_of_rooms = number_of_rooms;
         this.hotel_images = hotel_images;
         this.status = status;
     }
@@ -73,14 +70,6 @@ public class ResponseHotelAwait {
         this.hotel_contact_number = hotel_contact_number;
     }
 
-    public Integer getNumber_of_rooms() {
-        return number_of_rooms;
-    }
-
-    public void setNumber_of_rooms(Integer number_of_rooms) {
-        this.number_of_rooms = number_of_rooms;
-    }
-
     public List<String> getHotel_images() {
         return hotel_images;
     }
@@ -105,7 +94,6 @@ public class ResponseHotelAwait {
                 ", hotel_email='" + hotel_email + '\'' +
                 ", hotel_address='" + hotel_address + '\'' +
                 ", hotel_contact_number='" + hotel_contact_number + '\'' +
-                ", number_of_rooms=" + number_of_rooms +
                 ", hotel_images=" + hotel_images +
                 ", status='" + status + '\'' +
                 '}';

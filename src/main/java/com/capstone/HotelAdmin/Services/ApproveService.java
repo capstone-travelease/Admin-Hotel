@@ -56,15 +56,15 @@ public class ApproveService {
             List<String> hotelImages = getApproveRepository.getHotelImages(data.getHotel_id());
             data.setHotel_images(hotelImages);
 
-            if(!mapRoomWithHotel.containsKey(data.getHotel_id())){
-                mapRoomWithHotel.put(data.getHotel_id(), data.getNumber_of_rooms());
-                temp = data.getNumber_of_rooms();
-            } else {
-                temp = temp + data.getNumber_of_rooms();
-                mapRoomWithHotel.put(data.getHotel_id(), temp);
-            }
-
-            data.setNumber_of_rooms(mapRoomWithHotel.get(data.getHotel_id()));
+//            if(!mapRoomWithHotel.containsKey(data.getHotel_id())){
+//                mapRoomWithHotel.put(data.getHotel_id(), data.getNumber_of_rooms());
+//                temp = data.getNumber_of_rooms();
+//            } else {
+//                temp = temp + data.getNumber_of_rooms();
+//                mapRoomWithHotel.put(data.getHotel_id(), temp);
+//            }
+//
+//            data.setNumber_of_rooms(mapRoomWithHotel.get(data.getHotel_id()));
         }
 
         Map<Integer, List<ResponseHotelAwait>> groupedHotelId = getListHotel.stream()
@@ -87,9 +87,10 @@ public class ApproveService {
             for(var i = 0; i < groupedHotelId.get(data).size(); i++){
                 ResponseHotelAwait firstObj = groupedHotelId.get(data).get(i);
                 ResponseHotelAwait lastObj = groupedHotelId.get(data).get(groupedHotelId.get(data).size()-1);
-                if(firstObj.getNumber_of_rooms() >= lastObj.getNumber_of_rooms()){
-                    result.add(0, firstObj);
-                }
+                result.add(firstObj);
+//                if(firstObj.getNumber_of_rooms() >= lastObj.getNumber_of_rooms()){
+//                    result.add(0, firstObj);
+//                }
             }
         });
         return result;
