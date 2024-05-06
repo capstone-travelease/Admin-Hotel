@@ -14,7 +14,7 @@ public interface ApproveHotelRepository extends JpaRepository<Hotels, Long> {
     Integer AcceptApproval(Integer hotelId);
 
     @Query("SELECT new com.capstone.HotelAdmin.DTOs.ResponseHotelAwait(h.hotel_id, h.hotel_name, h.hotel_email, h.hotel_address, h.hotel_contact_number, r.room_quantity, as.statusName) FROM Hotels h\n" +
-            "INNER JOIN Rooms r ON r.hotel_id = h.hotel_id\n" +
+            "LEFT JOIN Rooms r ON r.hotel_id = h.hotel_id\n" +
             "INNER JOIN ApproveStatus as ON as.statusId = h.approve_status\n" +
             "WHERE h.approve_status = 2")
     List<ResponseHotelAwait> GetAwaitHotel();
