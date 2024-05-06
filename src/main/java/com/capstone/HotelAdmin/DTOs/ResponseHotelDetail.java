@@ -4,7 +4,7 @@ import com.capstone.HotelAdmin.Entities.Facilities;
 import com.capstone.HotelAdmin.Entities.HotelFacilities;
 import com.capstone.HotelAdmin.Entities.Users;
 
-import java.sql.Time;
+//import java.sql.String;
 import java.util.List;
 
 public class ResponseHotelDetail {
@@ -12,8 +12,8 @@ public class ResponseHotelDetail {
     private String hotel_name;
     private String hotel_address;
     private String hotel_contact_number;
-    private Time check_in;
-    private Time check_out;
+    private String check_in;
+    private String check_out;
     private String description;
     private List<String> hotel_images;
     private List<ResponseHotelFacility> hotel_facilities;
@@ -22,7 +22,7 @@ public class ResponseHotelDetail {
     private Users user;
     private String id_card;
 
-    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, Time check_in, Time check_out, String description) {
+    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, String check_in, String check_out, String description) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
@@ -32,7 +32,7 @@ public class ResponseHotelDetail {
         this.description = description;
     }
 
-    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, Time check_in, Time check_out, String description, String policy) {
+    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, String check_in, String check_out, String description, String policy) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
@@ -43,18 +43,18 @@ public class ResponseHotelDetail {
         this.policy = policy;
     }
 
-    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, Time check_in, String hotel_contact_number, Time check_out, String description, String policy) {
-        this.hotel_id = hotel_id;
-        this.hotel_name = hotel_name;
-        this.hotel_address = hotel_address;
-        this.check_in = check_in;
-        this.hotel_contact_number = hotel_contact_number;
-        this.check_out = check_out;
-        this.description = description;
-        this.policy = policy;
-    }
+//    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String check_in, String hotel_contact_number, String check_out, String description, String policy) {
+//        this.hotel_id = hotel_id;
+//        this.hotel_name = hotel_name;
+//        this.hotel_address = hotel_address;
+//        this.check_in = check_in;
+//        this.hotel_contact_number = hotel_contact_number;
+//        this.check_out = check_out;
+//        this.description = description;
+//        this.policy = policy;
+//    }
 
-    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, Time check_in, Time check_out, String description, List<String> hotel_images, String policy) {
+    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, String check_in, String check_out, String description, List<String> hotel_images, String policy) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
@@ -66,7 +66,7 @@ public class ResponseHotelDetail {
         this.policy = policy;
     }
 
-    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, Time check_in, Time check_out, String description, List<String> hotel_images, List<ResponseHotelFacility> hotel_facilities, String policy, Users user, String id_card) {
+    public ResponseHotelDetail(Integer hotel_id, String hotel_name, String hotel_address, String hotel_contact_number, String check_in, String check_out, String description, List<String> hotel_images, List<ResponseHotelFacility> hotel_facilities, String policy, Users user, String id_card) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_address = hotel_address;
@@ -113,19 +113,19 @@ public class ResponseHotelDetail {
         this.hotel_contact_number = hotel_contact_number;
     }
 
-    public Time getCheck_in() {
+    public String getCheck_in() {
         return check_in;
     }
 
-    public void setCheck_in(Time check_in) {
+    public void setCheck_in(String check_in) {
         this.check_in = check_in;
     }
 
-    public Time getCheck_out() {
+    public String getCheck_out() {
         return check_out;
     }
 
-    public void setCheck_out(Time check_out) {
+    public void setCheck_out(String check_out) {
         this.check_out = check_out;
     }
 
