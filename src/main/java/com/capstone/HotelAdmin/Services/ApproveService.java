@@ -95,4 +95,10 @@ public class ApproveService {
         });
         return result;
     }
+
+    public List<ResponseHotelApproved> ListHotelApproved(){
+        List<ResponseHotelApproved> result = approveHotel.GetHotelsApproved();
+
+        return result;
+    }
 }
